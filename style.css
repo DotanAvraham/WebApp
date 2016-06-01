@@ -1,0 +1,153 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+body{
+    max-width: 1480px;
+    min-width: 200px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    line-height: 50px;
+}
+header .layout-wrap > a{
+    line-height: 60px;
+}
+.layout-wrap{
+    width: 75%;
+    margin: 0 auto ;
+}
+.search-box{
+    float: right;
+}
+.search-box>input{
+    min-width: 100px;
+    height: 25px;
+    direction: rtl;
+}
+header{
+    clear:both;
+}
+.layout-wrap{
+    background-color: rgba(0,0,0,0.2);
+}
+.notifications{
+    background: blue;
+    height: 30px;
+}
+
+nav{
+    height: 220px;
+}
+
+.nav-section{
+    display: inline-block;
+    background-color: black;
+    width: 30%;
+    height: 150px;
+    margin: 10px;
+    position: relative; / *for ul list > absolute */
+}
+.nav-section > p{
+    color: white;
+    font-size: 24px;
+    text-align:center;
+    margin-bottom: 80px;
+}
+.menu-hint > p{
+    background-color: white;
+    position: relative;
+    padding-left: 16px;
+}
+
+.menu-hint > p::after{
+    content: " ";
+    display: inline-block;
+    border-top: 8px solid black;
+    border-right: 8px solid transparent;
+    border-left: 8px  solid transparent;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    transition: 1s;
+}
+.action-list {
+    position: absolute;
+    display: none;
+    list-style-type: none;
+    text-decoration: none;
+    width: 100%;
+    margin-top: -16px;
+    padding-left: 16px;
+    z-index: 10;
+}
+.nav-section:hover .action-list {
+    display: block;
+}
+.nav-section:hover .menu-hint > p::after{
+    transform:  rotate(180deg);
+}
+
+li:hover  {
+    background-color: yellow;
+}
+
+
+
+/* ////////////////   TABS  ////////////////////////*/
+.tabs{
+    position: relative;
+}
+
+.tabs > ul{
+    list-style-type: none;
+    text-decoration: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+
+}
+.tabs > ul > li{
+    display: inline-block;
+    width: 23%;
+    margin-left: 15px;
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+
+}
+.tabs > ul > li > a{
+    text-decoration: none;
+}
+
+.tabs > div:target {
+    display: inline-block;
+}
+
+.tabs > div{
+    width: 100%;
+    height: 200px;
+
+    display: none;
+    position: absolute;
+}
+
+#quick-reports{
+    background: orangered;
+}
+#fmy-folders{
+    background: blue;
+}
+#my-team-folders{
+    background: red;
+}
+#public-folders{
+    background: seagreen;
+}
