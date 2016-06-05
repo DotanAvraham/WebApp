@@ -31,7 +31,7 @@ Implement:
     </div>
     <nav>
         <div class="nav-section">
-            <p>Select Reporting Platform</p>
+            <p>Select <br> Reporting Platform</p>
             <div class="menu">
                 <div class="menu-hint">
                     <p>Choose QS report</p>
@@ -46,7 +46,7 @@ Implement:
             </div>
         </div>
         <div class="nav-section">
-            <p>Select Dashboard</p>
+            <p>Select <br> Dashboard</p>
             <div class="menu">
                 <div class="menu-hint">
                     <p>Choose dashboard</p>
@@ -61,7 +61,7 @@ Implement:
             </div>
         </div>
         <div class="nav-section">
-            <p>Help &amp; Tutorials</p>
+            <p>Help &amp;  <br> Tutorials</p>
             <div class="menu">
                 <div class="menu-hint">
                     <p>Choose guide</p>
@@ -77,8 +77,10 @@ Implement:
             </div>
         </div>
     </nav>
-    
-    <div class="tabs">
+
+
+
+       <div class="tabs">
         <ul>
             <li><a href="#quick-reports">Quick Reports</a>
             </li>
@@ -90,16 +92,85 @@ Implement:
             </li>
         </ul>
         <div id="quick-reports">
+            <form action="#" method="get">
+            <ul class="reports-list">
+                <li>
+                    <select class="web-list" id="qr-web-list"></select>
+                    <span class="new-tab">
+                        <img src="img/settings.png">
+                    </span>
+                </li>
+                <div class="action-reports-list">
+                    <li class="reports-input">
+                        <span>Report 01</span>
+                        <label name="lableName1"> Name </label><input type="text" id="inputName1" placeholder="Name">
+                        <label name="labelUrl1"> URL </label><input type="text" id="inputUrl1" placeholder="URL">
+                    </li>
+
+                    <li class="reports-input">
+                        <span>Report 02</span>
+                        <label name="lableName2"> Name </label><input type="text" id="inputName2" placeholder="Name">
+                        <label name="labelUrl2"> URL </label><input type="text" id="inputUrl2" placeholder="URL">
+                    </li>
+                    <li class="reports-input">
+                        <span>Report 03</span>
+                        <label name="lableName3"> Name </label><input type="text" id="inputName3" placeholder="Name">
+                        <label name="labelUrl3"> URL </label><input type="text" id="inputUrl3" placeholder="URL">
+                    </li>
+                    <li>
+                        <input type="button" value="Save" id="quick-reports-submit">
+                    </li>
+                </div>
+            </ul>
+            </form>
         </div>
+
+
         <div id="fmy-folders">
+
         </div>
         <div id="my-team-folders">
+            <form action="#" method="get">
+                <ul class="reports-list">
+                    <li>
+                            <select class="web-list" id="my-team-web-list"></select>
+                            <span class="new-tab" id="set-name-url-report">
+                                <img src="img/settings.png">
+                            </span>
+                    </li>
+
+                    <div class="action-reports-list">
+                            <li class="reports-input">
+                                <span>Report 01</span>
+                                <label name="lableName4"> Name </label><input type="text" id="inputName4" placeholder="Name">
+                                <label name="labelUrl4"> URL </label><input type="text" id="inputUrl4" placeholder="URL">
+                            </li>
+
+                            <li class="reports-input">
+                                <span>Report 02</span>
+                                <label name="lableName5"> Name </label><input type="text" id="inputName5" placeholder="Name">
+                                <label name="labelUrl5"> URL </label><input type="text" id="inputUrl5" placeholder="URL">
+                            </li>
+
+                            <li class="reports-input">
+                                <span>Report 03</span>
+                                <label name="lableName6"> Name </label><input type="text" id="inputName6" placeholder="Name">
+                                <label name="labelUrl6"> URL </label><input type="text" id="inputUrl6" placeholder="URL">
+                            </li>
+
+                            <li>
+                                <input type="button" value="Save" id="my-team-folders-submit">
+                            </li>
+                    </div>
+
+                </ul>
+            </form>
         </div>
         <div id="public-folders">
         </div>
     </div>
 </div>
 
-
+<script src="js/main.js"></script>
 </body>
 </html>

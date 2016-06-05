@@ -10,6 +10,9 @@ body{
     max-width: 1480px;
     min-width: 200px;
     margin: 0 auto;
+    background-image: url("../img/BlurredBackgrounds(2300x1500).jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 header {
@@ -22,7 +25,7 @@ header .layout-wrap > a{
     line-height: 60px;
 }
 .layout-wrap{
-    width: 75%;
+    width: 80%;
     margin: 0 auto ;
 }
 .search-box{
@@ -45,27 +48,43 @@ header{
 }
 
 nav{
-    height: 220px;
+    height: 170px;
+}
+
+nav > div{
+    background: no-repeat 50% 70px;
+}
+nav > div:nth-child(1){
+    background-image: url("../img/action-report-new.png");
+}
+nav > div:nth-child(2){
+    background-image: url("../img/action-report-top.png");
+}
+nav > div:nth-child(3){
+    background-image: url("../img/actions-help.png");
 }
 
 .nav-section{
     display: inline-block;
     background-color: black;
-    width: 30%;
+    width: 31.2%;
     height: 150px;
     margin: 10px;
+    cursor: pointer;
     position: relative; / *for ul list > absolute */
+
 }
 .nav-section > p{
     color: white;
     font-size: 24px;
     text-align:center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+    margin-top: 10px;
 }
 .menu-hint > p{
     background-color: white;
     position: relative;
-    padding-left: 16px;
+    padding: 5px 16px;
 }
 
 .menu-hint > p::after{
@@ -75,11 +94,12 @@ nav{
     border-right: 8px solid transparent;
     border-left: 8px  solid transparent;
     position: absolute;
-    right: 10px;
-    top: 5px;
+    right: 20px;
+    top: 10px;
     transition: 1s;
 }
 .action-list {
+    background-color: white;
     position: absolute;
     display: none;
     list-style-type: none;
@@ -88,6 +108,7 @@ nav{
     margin-top: -16px;
     padding-left: 16px;
     z-index: 10;
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.5)
 }
 .nav-section:hover .action-list {
     display: block;
@@ -96,13 +117,13 @@ nav{
     transform:  rotate(180deg);
 }
 
-li:hover  {
+/*li:hover  {
     background-color: yellow;
-}
+}*/
 
 
 
-/* ////////////////   TABS  ////////////////////////*/
+/* ////////////////   TABS List  ////////////////////////*/
 .tabs{
     position: relative;
 }
@@ -116,13 +137,15 @@ li:hover  {
 }
 .tabs > ul > li{
     display: inline-block;
-    width: 23%;
-    margin-left: 15px;
+    width: 24.71%;
     text-align: center;
-    height: 30px;
+    height: 40px;
     padding: 5px;
-
+    line-height: 30px;
+    cursor: pointer;
+   /* background: transparent;*/
 }
+
 .tabs > ul > li > a{
     text-decoration: none;
 }
@@ -133,21 +156,95 @@ li:hover  {
 
 .tabs > div{
     width: 100%;
-    height: 200px;
-
     display: none;
     position: absolute;
 }
 
-#quick-reports{
-    background: orangered;
+
+/*//////////////////////////       TABS        //////////////////////*/
+/*#quick-reports{
+    background: rgba(235,235,235,0.5);
+}*/
+
+
+
+/*   ul  */
+.reports-list{
+    background-color: rgba(235,235,235,1);
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
 }
+
+/*   li   */
+.reports-input{
+    background-color: rgba(0,0,0,0.09);
+    margin: 10px;
+    padding: 10px 30px;
+}
+
+.reports-list > li:first-child{
+    clear: both;
+    height: 30px;
+}
+
+.web-list{
+    display: none;
+}
+
+.reports-list:nth-child(2){
+    margin-top: 20px;
+}
+
+
+.new-tab{
+    float: right;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: white;
+}
+
+.new-tab > img {
+    margin: 2px;
+}
+
+.reports-list > li:last-child{
+    clear: both;
+}
+
+.reports-list > div > li:last-child > input{
+    float: right;
+    margin-right: 10px;
+}
+
+.reports-input > span{
+    display: inline-block;
+    margin-right: 80px;
+}
+
+.reports-input > label{
+    margin: 0px 20px 0px 40px;
+}
+
+.reports-input > input {
+    width: 320px;
+    padding: 5px;
+}
+
+.action-reports-list{
+    position: relative;
+    height: 250px;
+    padding-top: 20px;
+}
+
 #fmy-folders{
-    background: blue;
+
 }
 #my-team-folders{
-    background: red;
+
 }
 #public-folders{
-    background: seagreen;
+
 }
