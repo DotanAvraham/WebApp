@@ -10,8 +10,7 @@ body{
     max-width: 1480px;
     min-width: 200px;
     margin: 0 auto;
-    background-image: url("../img/BlurredBackgrounds(2300x1500).jpg");
-    background-repeat: no-repeat;
+    background: url("../img/BlurredBackgrounds(2300x1500).jpg") no-repeat;
     background-size: 100%;
 }
 
