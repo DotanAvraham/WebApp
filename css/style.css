@@ -173,7 +173,7 @@ nav > div:nth-child(3){
     background-color: rgba(235,235,235,1);
     list-style-type: none;
     text-decoration: none;
-    padding: 0px;
+    padding: 10px;
     margin: 0px;
 }
 
@@ -229,7 +229,7 @@ nav > div:nth-child(3){
 }
 
 .reports-input > input {
-    width: 320px;
+    width: 300px;
     padding: 5px;
 }
 
@@ -237,6 +237,7 @@ nav > div:nth-child(3){
     position: relative;
     height: 250px;
     padding-top: 20px;
+    background: white;
 }
 
 #fmy-folders{
