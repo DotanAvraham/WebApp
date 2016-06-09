@@ -3,6 +3,14 @@
  */
 
 var webApp = {
+    name : {
+        inputName1: " ",
+        inputName2: " ",
+        inputName3: " ",
+        inputName4: " ",
+        inputName5: " ",
+        inputName6: " "
+    },
     url : {
         "inputUrl1":" ",
         "inputUrl2":" ",
@@ -10,15 +18,8 @@ var webApp = {
         "inputUrl4":" ",
         "inputUrl5":" ",
         "inputUrl6":" "
-    },
-    name : {
-        inputName1: " ",
-        inputName2: " ",
-        inputName3: " ",
-        inputName4: " ",
-        inputName5: " ",
-        inputName6: " ",
     }
+
 };
 
     ///////////////////   new tab Setting img  ////////////////////////////
@@ -77,9 +78,11 @@ for (var index in tabs) {
 
 var saveButton = document.querySelectorAll(".submit-button");
 
-
-saveButton[1].onclick = submitButton;
+// NodeList[2]
 saveButton[0].onclick = submitButton;
+saveButton[1].onclick = submitButton;
+
+
 
     function submitButton(e){
 
@@ -87,47 +90,73 @@ saveButton[0].onclick = submitButton;
         var input = document.querySelectorAll('.reports-input > input');
         var arr = Array.prototype.slice.call(input);
 
+        input =  this.id === "quick-reports-submit" ?   arr.slice(0,6) :  arr.splice(6,arr.length-1);
 
-        /*     */
-
-        this.id === "quick-reports-submit" ?  arr = arr.slice(0,6) : arr = arr.splice(6,arr.length-1);
-/*        if(this.id === "quick-reports-submit"){
-            arr.slice(0,6);
-        }else{
-            arr.splice(6,arr.length-1);
-        }*/
         checkValidation(arr);
 
 
-   //     arr[0].value = 'blblblbllb';
+        dropDownSelect(input);
 
 
-  //  console.log(this.id);
-    //    console.log(arr);
-
-        e.preventDefault();
 
 
+
+
+        //e.preventDefault();
     }
+
+
+
+function dropDownSelect(inputList){
+
+    // save the inputs on object webApp
+    var select = document.createElement("select")
+    for(var i=0; i< inputList.length; i++) {
+        // check empty inputs
+        if (inputList[i].value !== "") {
+
+            var option = document.createElement("option");
+            option.innerText = inputList[i].value;
+
+            select.appendChild(option);
+       // console.log(inputList[i].value);
+        webApp[inputList[i].id] = inputList[i].value
+    }
+    }
+
+   var webList =  document.querySelector("#qr-web-list");
+
+    webList.style.display = "inline-block";
+    webList.appendChild(select);
+    console.log(webList);
+   // console.log(webApp);
+
+}
+
+
+
 
 function checkValidation(arr){
 
     for(var i=0; i < arr.length; i++){
-     //   console.log("index:" +i + " value: " + arr[i].value );
-        // check name fields
-        if(i%2 === 0){
-          //  arr[i].value = "name " + i;
-            if(arr[i].value === "")
-            arr[i].style.required;
-        }
-        // check URL fields
+        // check names fields
+        if(i%2 === 0 ){
+                // check empty name validation
+                if(arr[i].value === "" && arr[i+1].value !== ""){
+                    arr[i].setAttribute("required","");
+                    arr[i].focus();
+                    return false;
+                }
+            }
+        // check URLs fields
         else{
-           // arr[i].value = "URL " + i;
-          //  arr[i].style.required = "true";
+               // check empty  name validation
+                if(arr[i].value === "" && arr[i-1].value !== ""){
+                    arr[i].setAttribute("required","true");
+                    arr[i].focus();
+                    return false;
+
+                }
         }
-
-
     }
-
-
 }

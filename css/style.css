@@ -198,6 +198,9 @@ nav > div:nth-child(3){
 }
 
 .web-list{
+    display: inline-block;
+    width: 280px;
+    height: 30px;
     display: none;
 }
 
