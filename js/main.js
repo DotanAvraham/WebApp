@@ -82,8 +82,6 @@ var saveButton = document.querySelectorAll(".submit-button");
 saveButton[0].onclick = submitButton;
 saveButton[1].onclick = submitButton;
 
-
-
     function submitButton(e){
 
 
@@ -94,43 +92,76 @@ saveButton[1].onclick = submitButton;
 
         checkValidation(arr);
 
+        dropDownSelect(input , this.id.substr(0,this.id.length-6));
 
-        dropDownSelect(input);
-
-
-
+        localStorage.setItem('webApp' , JSON.stringify(webApp));
 
 
+        var data = JSON.parse(localStorage.getItem('webApp'));
+        for(var i=0; i< arr.length; i+=2){
+            if(data.name[i] !== undefined) {
+                arr[i].value = data.name[i];
+                arr[i + 1].value = data.url[i];
+            }
+        }
+
+        console.log(arr);
+
+
+
+       // console.log(data);
 
         //e.preventDefault();
     }
 
 
+///  set and update localStorage
+(function(){
+    //localStorage.clear();
+    localStorage.setItem('webApp' , JSON.stringify(webApp));
+})();
 
-function dropDownSelect(inputList){
+
+
+// get from localStorage
+
+
+if(localStorage['webApp'] === undefined){
+    console.log("no exist!!")
+}
+
+
+
+function dropDownSelect(inputList , divReports){
 
     // save the inputs on object webApp
-    var select = document.createElement("select")
-    for(var i=0; i< inputList.length; i++) {
+    var select = document.querySelector("#"+ divReports +"web-list > select") || document.createElement("select");
+    select.className = "web-list";
+    select.innerHTML = "";
+
+    var flag = true;
+    for(var i=0; i< inputList.length;  i+= 2) {
         // check empty inputs
         if (inputList[i].value !== "") {
 
             var option = document.createElement("option");
             option.innerText = inputList[i].value;
-
+            option.value = inputList[i+1].value;
             select.appendChild(option);
-       // console.log(inputList[i].value);
-        webApp[inputList[i].id] = inputList[i].value
+
+            webApp.name[inputList[i].id] = inputList[i].value;
+            webApp.url[inputList[i+1].id] = inputList[i+1].value;
+            flag = false;
+        }
+      //  console.log(inputList[i]);
     }
+    if(flag){
+        return false;
     }
 
-   var webList =  document.querySelector("#qr-web-list");
+   var webList =  document.querySelector("#"+ divReports +"web-list");
 
-    webList.style.display = "inline-block";
     webList.appendChild(select);
-    console.log(webList);
-   // console.log(webApp);
-
 }
 
 
@@ -150,9 +181,9 @@ function checkValidation(arr){
             }
         // check URLs fields
         else{
-               // check empty  name validation
+               // check empty url validation
                 if(arr[i].value === "" && arr[i-1].value !== ""){
-                    arr[i].setAttribute("required","true");
+                    arr[i].setAttribute("required","");
                     arr[i].focus();
                     return false;
 

@@ -198,10 +198,10 @@ nav > div:nth-child(3){
 }
 
 .web-list{
-    display: inline-block;
+    display: block;
     width: 280px;
     height: 30px;
-    display: none;
+  /*  display: none;*/
 }
 
 .reports-list:nth-child(2){
